@@ -1,0 +1,200 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif; /* Добавим современный шрифт */
+    background-color: #000000; /* Чёрный фон */
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.loader, .reward, .main, .tasks {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.loader img {
+    width: 300px;
+    height: auto;
+    animation: rotate 3s linear infinite;
+    transition: transform 0.5s ease-in-out; /* Добавлен плавный переход */
+}
+
+.loader img:hover {
+    transform: scale(1.1); /* Эффект увеличения изображения при наведении */
+}
+
+.loader p {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #ffdd57;
+    animation: fadeIn 3s ease-in-out; /* Плавное появление текста */
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.reward p, .balance-window p {
+    font-size: 24px;
+    margin-bottom: 20px;
+    animation: text-fade-in 1.5s ease-in-out;
+}
+
+@keyframes text-fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 255, 0, 0.3); /* Тень вокруг кнопки */
+    transition: all 0.3s ease-in-out; /* Плавные изменения */
+}
+
+button:hover {
+    background-color: #45a049;
+    box-shadow: 0 8px 20px rgba(0, 255, 0, 0.5); /* Более интенсивная тень при наведении */
+    transform: scale(1.05); /* Лёгкое увеличение при наведении */
+}
+
+.balance-window {
+    background: linear-gradient(45deg, #000000, #4e4e4e);
+    border-radius: 20px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5); /* Улучшенная тень */
+    color: white;
+    width: 300px;
+    height: 300px; /* Квадратное окно */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: color-shift 4s infinite alternate, window-float 6s ease-in-out infinite; /* Плавающая анимация */
+    margin-top: -80px; /* Поднятие окна выше */
+    transition: all 0.3s ease-in-out;
+}
+
+/* Анимация плавного перемещения окна */
+@keyframes window-float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes color-shift {
+    0% {
+        background-color: #000000;
+    }
+    100% {
+        background-color: #4e4e4e;
+    }
+}
+
+.logo-container {
+    position: absolute;
+    bottom: 100px;
+    text-align: center;
+    animation: bounce 2s infinite; /* Эффект прыжка логотипа */
+}
+
+.logo-container img {
+    width: 60px;
+    height: 60px;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.tabs {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    background-color: #333;
+    box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.5);
+    padding: 10px 0;
+}
+
+.tab-btn {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    transition: color 0.3s ease-in-out;
+}
+
+.tab-btn:hover {
+    color: #4CAF50;
+    transform: scale(1.1); /* Лёгкое увеличение при наведении */
+}
+
+.hidden {
+    display: none;
+}
+
+.tasks {
+    text-align: center;
+    animation: fadeIn 1s ease-in-out; /* Плавное появление страницы */
+}
+
+.task {
+    margin: 20px;
+    padding: 20px;
+    border: 2px solid #4CAF50;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease-in-out;
+}
+
+.task:hover {
+    transform: scale(1.05); /* Лёгкое увеличение задания при наведении */
+}
